@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useAuthStore } from "../store/useAuthStore";
-
 const LeadForm = () => {
  const { Lead } = useAuthStore();
   const [lead, setLead] = useState({
