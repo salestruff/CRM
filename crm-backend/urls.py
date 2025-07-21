@@ -1,6 +1,7 @@
-from django.urls import path
-from api.views import hello
+from django.contrib import admin
+from django.urls import path, include
 
 urlpatterns = [
-    path('api/hello', hello),
+    path('admin/', admin.site.urls),
+    path('api/', include('crm.urls')),  # Adjust app name accordingly
 ]
