@@ -17,9 +17,9 @@ export const useAuthStore = create(() => ({
   Contact: async (contact) => {
     try {
       await axiosInstance.post("/contacts/", contact);
-      toast.success("Contact Message Created!");
+      toast.success("Contact Created!");
     } catch (error) {
-      toast.error(error.response?.data?.message || "Contact creation failed");
+      alert(error.response?.data?.message || "Error creating contact");
     }
   },
 

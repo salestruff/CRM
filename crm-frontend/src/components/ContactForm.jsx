@@ -5,9 +5,11 @@ const ContactForm = () => {
   const { Contact } = useAuthStore();
   const [contact, setContact] = useState({ lead: "", message: "" });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       await Contact(contact);
+      setContact({ lead: '', message: ''});
     } catch (err) {
       console.error(err);
     }

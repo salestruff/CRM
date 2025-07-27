@@ -5,10 +5,11 @@ const OpportunityForm = () => {
   const { Opportunity } = useAuthStore();
   const [opportunity, setOpportunity] = useState({ lead: "", stage: "", amount: "", close_date: "" });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       await Opportunity(opportunity);
-      alert("Opportunity saved");
+      setOpportunity({ lead: "", stage: "", amount: "", close_date: "" });
     } catch (err) {
       console.error(err);
     }

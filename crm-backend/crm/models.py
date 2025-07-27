@@ -13,7 +13,7 @@ class Lead(models.Model):
 class Contact(models.Model):
     lead = models.ForeignKey(Lead, on_delete=models.CASCADE)
     message = models.TextField()
-    contact_date = models.DateTimeField(auto_now_add=True)
+    created_at_date = models.DateTimeField(auto_now_add=True)
 
 class Opportunity(models.Model):
     lead = models.ForeignKey(Lead, on_delete=models.CASCADE)

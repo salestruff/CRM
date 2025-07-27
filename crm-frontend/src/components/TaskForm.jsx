@@ -5,9 +5,11 @@ const TaskForm = () => {
  const { Task } = useAuthStore();
   const [task, setTask] = useState({ title: "", lead: "", due_date: "", completed: false });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       await Task(task);
+      setTask({ title: "", lead: "", due_date: "", completed: false });
     } catch (err) {
       console.error(err);
     }

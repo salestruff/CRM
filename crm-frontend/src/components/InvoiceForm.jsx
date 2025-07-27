@@ -5,10 +5,11 @@ const InvoiceForm = () => {
  const { Invoice } = useAuthStore();
   const [invoice, setInvoice] = useState({ lead: "", issue_date: "", due_date: "", amount: "", status: "Pending" });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       await Invoice(invoice);
-      alert("Invoice created");
+      setInvoice({ lead: "", issue_date: "", due_date: "", amount: "", status: "Pending" });
     } catch (err) {
       console.error(err);
     }

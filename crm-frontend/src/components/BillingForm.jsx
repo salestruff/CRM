@@ -11,10 +11,17 @@ const BillingForm = () => {
     status: "Paid",
   });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
       await Billing(billing);
-      alert("Billing recorded");
+      setBilling({
+        invoice: "",
+        payment_method: "",
+        transaction_id: "",
+        amount_paid: "",
+        status: "Paid",
+      });
     } catch (err) {
       console.error(err);
     }
